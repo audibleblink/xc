@@ -5,7 +5,6 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	mr "math/rand"
 	"net"
@@ -68,7 +67,7 @@ func Save(dst string, data string) bool {
 		log.Println(err)
 		return false
 	}
-	err = ioutil.WriteFile(dst, raw, 0644)
+	err = os.WriteFile(dst, raw, 0644)
 	if err != nil {
 		log.Println(err)
 		return false
@@ -78,7 +77,7 @@ func Save(dst string, data string) bool {
 
 // SaveRaw ...
 func SaveRaw(dst string, data string) bool {
-	err := ioutil.WriteFile(dst, []byte(data), 0644)
+	err := os.WriteFile(dst, []byte(data), 0644)
 	if err != nil {
 		log.Println(err)
 		return false
@@ -88,7 +87,7 @@ func SaveRaw(dst string, data string) bool {
 
 // Load file from disk and return base64 encoded representation
 func Load(src string) (string, bool) {
-	data, err := ioutil.ReadFile(src)
+	data, err := os.ReadFile(src)
 	if err != nil {
 		log.Println(err)
 		return "", false
@@ -99,7 +98,7 @@ func Load(src string) (string, bool) {
 
 // LoadRaw ...
 func LoadRaw(src string) ([]byte, bool) {
-	data, err := ioutil.ReadFile(src)
+	data, err := os.ReadFile(src)
 	if err != nil {
 		log.Println(err)
 		return nil, false
@@ -110,12 +109,12 @@ func LoadRaw(src string) ([]byte, bool) {
 // CopyFile copies a file from a source path to a destination path
 func CopyFile(src string, dst string) {
 	// Read all content of src to data
-	data, err := ioutil.ReadFile(src)
+	data, err := os.ReadFile(src)
 	if err != nil {
 		log.Println(err)
 	}
 	// Write data to dst
-	err = ioutil.WriteFile(dst, data, 0644)
+	err = os.WriteFile(dst, data, 0644)
 	if err != nil {
 		log.Println(err)
 	}
@@ -135,7 +134,7 @@ func UploadConnectRaw(s *yamux.Session) ([]byte, error) {
 		return nil, err
 	}
 	defer stream.Close()
-	line, err := ioutil.ReadAll(stream)
+	line, err := io.ReadAll(stream)
 	if err != nil {
 		return nil, err
 	}
@@ -155,7 +154,7 @@ func UploadConnect(dst string, s *yamux.Session) {
 		return
 	}
 	defer stream.Close()
-	line, err := ioutil.ReadAll(stream)
+	line, err := io.ReadAll(stream)
 	if err != nil {
 		log.Println(err)
 		return
@@ -195,7 +194,7 @@ func DownloadListen(dst string, s *yamux.Session) {
 		return
 	}
 	defer stream.Close()
-	line, err := ioutil.ReadAll(stream)
+	line, err := io.ReadAll(stream)
 	if err != nil {
 		log.Println(err)
 		return
