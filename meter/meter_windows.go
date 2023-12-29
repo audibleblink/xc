@@ -8,7 +8,7 @@ import (
 	"log"
 	"net"
 
-	"../shell"
+	"github.com/xct/xc/shell"
 )
 
 // Connect to meterpreter listener

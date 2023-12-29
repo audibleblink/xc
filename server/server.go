@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"../utils"
+	"github.com/xct/xc/utils"
 	"github.com/hashicorp/yamux"
 )
 

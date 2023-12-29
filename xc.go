@@ -12,8 +12,8 @@ import (
 	"time"
 	"regexp"
 
-	"./client"
-	"./server"
+	"github.com/xct/xc/client"
+	"github.com/xct/xc/server"
 	"github.com/hashicorp/yamux"
 	"github.com/libp2p/go-reuseport"
 	"path/filepath"

@@ -13,9 +13,9 @@ import (
 	"time"
 	"strconv"
 
-	"../plugins"
-	"../shell"
-	"../utils"
+	"github.com/xct/xc/plugins"
+	"github.com/xct/xc/shell"
+	"github.com/xct/xc/utils"
 	"github.com/hashicorp/yamux"
 )
 

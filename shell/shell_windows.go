@@ -14,7 +14,7 @@ import (
 	"io/ioutil"
 	"encoding/base64"
 	
-	"../utils"
+	"github.com/xct/xc/utils"
 )
 
 const (

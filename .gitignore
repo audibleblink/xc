@@ -25,3 +25,4 @@ shell/keys.go
 meter/sc.go
 files/keys/*
 files/powershell/*
+venv

